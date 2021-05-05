@@ -1,16 +1,6 @@
-import {
-  Container,
-  Table,
-  TR,
-  TH,
-  TD,
-  ActiveStatusTag,
-  PendingStatusTag,
-  Dropdown,
-  DropdownOption,
-  CaretDown,
-} from "./TableStyles";
+import { Container, Table, TR, TH, TD } from "./TableStyles";
 import StatusTag from "../StatusTag";
+import Dropdown from "../Dropdown";
 
 export default function () {
   return (
@@ -47,10 +37,7 @@ export default function () {
             <TD>bob@email.com</TD>
             <TD>
               <StatusTag status="Pending" />
-              <Dropdown>
-                <DropdownOption>Active</DropdownOption>
-                <DropdownOption>Pending</DropdownOption>
-              </Dropdown>
+              <Dropdown />
             </TD>
           </TR>
         </tbody>
