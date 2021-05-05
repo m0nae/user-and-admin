@@ -1,11 +1,13 @@
-import { Wrapper } from "./AdminStyles";
+import { Wrapper, TableContainer, Heading } from "./AdminStyles";
 import Table from "../../components/Table";
 
 export default function () {
   return (
     <Wrapper>
-      <h1>Admin Page</h1>
-      <Table />
+      <Heading>Admin Page</Heading>
+      <TableContainer>
+        <Table />
+      </TableContainer>
     </Wrapper>
   );
 }
