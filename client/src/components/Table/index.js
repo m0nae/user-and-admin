@@ -1,13 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Container, Table, TR, TH, TD } from "./TableStyles";
 import TableRow from "./TableRow";
 import Dropdown from "../Dropdown";
+import { fetchAllUsers } from "./usersSlice";
 
 export default function () {
+  const dispatch = useDispatch();
+  const users = useSelector((state) => state.users);
+
   // activeRow is the row which currently has a Dropdown menu open
   // each TableRow has a fn that closes their Dropdown if they are not the activeRow
   // this allows there to only be one Dropdown menu open at a time!
   const [activeRow, setActiveRow] = useState();
+
+  useEffect(() => {
+    dispatch(fetchAllUsers());
+  }, [dispatch]);
 
   return (
     <Container>
@@ -21,25 +30,19 @@ export default function () {
           </TR>
         </thead>
         <tbody>
-          <TableRow
-            index={1}
-            firstName="Bob"
-            lastName="Jones"
-            email="bob@email.com"
-            status="Pending"
-            setActiveRow={setActiveRow}
-            activeRow={activeRow}
-          />
-          <TableRow
-            index={2}
-            firstName="John"
-            lastName="Doe"
-            email="john@email.com"
-            status="Active"
-            setActiveRow={setActiveRow}
-            activeRow={activeRow}
-          />
-          <TableRow
+          {users &&
+            users?.users[0]?.map((user) => (
+              <TableRow
+                index={user.id}
+                firstName={user.firstName}
+                lastName={user.lastName}
+                email={user.email}
+                status={user.state}
+                setActiveRow={setActiveRow}
+                activeRow={activeRow}
+              />
+            ))}
+          {/* <TableRow
             index={3}
             firstName="Sam"
             lastName="Smith"
@@ -47,7 +50,7 @@ export default function () {
             status="Pending"
             setActiveRow={setActiveRow}
             activeRow={activeRow}
-          />
+          /> */}
         </tbody>
       </Table>
     </Container>

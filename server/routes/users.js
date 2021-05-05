@@ -21,11 +21,12 @@ router.get("/:id", async (req, res) => {
 
 router.post("/", (req, res) => {
   // todo: replace this with actual form data in the frontend
+  console.log(req.body);
   const user = UsersService.createUser({
-    id: 6,
-    email: "sam@email.com",
-    firstName: "Sam",
-    lastName: "Smith",
+    id: Math.floor(Math.random() * 10000),
+    email: req.body.email,
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
     state: "pending",
   });
 

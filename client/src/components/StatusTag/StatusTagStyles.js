@@ -10,8 +10,8 @@ export const StatusTag = styled.div`
   border-radius: 3px;
   cursor: pointer;
 
-  ${(props) => props.status === "Active" && "background-color: #27aa49;"}
-  ${(props) => props.status === "Pending" && "background-color: #ffa701;"}
+  ${(props) => props.status === "active" && "background-color: #27aa49;"}
+  ${(props) => props.status === "pending" && "background-color: #ffa701;"}
 `;
 
 export const CaretDown = styled.div`
