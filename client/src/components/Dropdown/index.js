@@ -1,8 +1,8 @@
 import { Dropdown, DropdownOption } from "./DropdownStyles";
 
-export default function () {
+export default function ({ open }) {
   return (
-    <Dropdown>
+    <Dropdown open={open}>
       <DropdownOption>Active</DropdownOption>
       <DropdownOption>Pending</DropdownOption>
     </Dropdown>

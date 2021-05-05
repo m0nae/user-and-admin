@@ -11,6 +11,7 @@ export const Dropdown = styled.div`
   font-size: 0.9rem;
   position: absolute;
   margin-top: 0.3rem;
+  ${(props) => (props.open === true ? "display: unset;" : "display: none;")}
 
   > :not(:last-child) {
     border-bottom: 1px solid whitesmoke;
